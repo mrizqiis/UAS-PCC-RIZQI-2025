@@ -1,0 +1,15 @@
+name: Github Actions Build , UAS-PCC-RIZQI-2025
+run-name: ${{ github.actions }} Build Docker Image
+on: [push]
+jobs:
+  Build-Docker-Images:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Build and Tag Docker Image
+        run: |
+ docker build -t alpine-github-action:v1 -f Dockerfile .
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
