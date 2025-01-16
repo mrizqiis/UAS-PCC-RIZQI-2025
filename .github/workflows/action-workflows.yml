@@ -1,15 +1,18 @@
-name: Github Actions Build , UAS-PCC-RIZQI-2025
-run-name: ${{ github.actions }} Build Docker Image
+name: GitHub Actions Build UAS-PCC-RIZQI-2025
+run-name: ${{ github.actor }} is Building Docker Image 🚀
 on: [push]
 jobs:
-  Build-Docker-Images:
+  Build-Docker-Image:
     runs-on: ubuntu-latest
     steps:
-
       - name: Check out repository code
         uses: actions/checkout@v4
-      - name: Build and Tag Docker Image
-        run: |
- docker build -t alpine-github-action:v1 -f Dockerfile .
 
-      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - name: Verify Dockerfile exists
+        run: ls -la
+
+      - name: login and build
+        run: |
+          docker build -t mrizqiis/uas-pcc-rizqi-2025:latest -f Dockerfile .
+          echo ${{ secrets.password }} | docker login -u ${{ secrets.username }} --password-stdin
+          docker push mrizqiis/uas-pcc-rizqi-2025:latest
