@@ -15,7 +15,7 @@ RUN mkdir -p /var/www/localhost/htdocs
 COPY index.html /var/www/localhost/htdocs/
 
 # Menyediakan file teks sebagai demonstrasi
-RUN touch UAS-PCCM-RIZQI-2025.txt && \
+RUN touch UAS-PCC-RIZQI-2025.txt && \
     echo "UAS" > UAS-PCC-RIZQI-2025.txt
 
 # Expose port 80 untuk Apache
