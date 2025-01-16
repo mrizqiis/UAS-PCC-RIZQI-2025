@@ -14,5 +14,5 @@ jobs:
       - name: login and build
         run: |
           docker build -t mrizqiis/uas-pcc-mrizqiis-2025:latest -f Dockerfile .
-          echo ${{ secrets.DOCKERHUB_ACCESSTOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          echo ${{ secrets.PASSWORD }} | docker login -u ${{ secrets.USERNAME }} --password-stdin
           docker push mrizqiis/uas-pcc-mrizqiis-2025:latest
