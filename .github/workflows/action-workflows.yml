@@ -13,6 +13,6 @@ jobs:
 
       - name: login and build
         run: |
-          docker build -t mrizqiis/uas-pcc-rizqi-2025:latest -f Dockerfile .
+          docker build -t mrizqiis/uas-pcc-mrizqiis-2025:latest -f Dockerfile .
           echo ${{ secrets.password }} | docker login -u ${{ secrets.username }} --password-stdin
-          docker push mrizqiis/uas-pcc-rizqi-2025:latest
+          docker push mrizqiis/uas-pcc-mrizqiis-2025:latest
